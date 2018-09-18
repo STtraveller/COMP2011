@@ -10,7 +10,7 @@ void printBoard(int Heap[3]) {
 int main() {
   int Heap[3], inputHeap, inputNumber, mode;
   bool empty = false;
-  cout << "Please select mode:\n1. Player vs Player\n2. Player vs Computer\n";
+  cout << "\n1. Player vs Player\n2. Player vs Computer\nPlease select mode: ";
   do {
     cin >> mode;
     if (!((mode == 1) || (mode == 2))) {
