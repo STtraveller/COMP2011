@@ -37,11 +37,7 @@ double random_number()
 bool is_in_circle(double x, double y)
 {
     // add your code here
-  if (x*x + y*y <= 1) {
-    return true;
-  } else {
-    return false;
-  }
+  return x*x + y*y <= 1;
 }
 
 /* Estimate the value of pi and find the number of raindrops inside the circle
