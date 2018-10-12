@@ -13,11 +13,35 @@ const int ENCRYPT = 1;
 // Hint: since 122 + 14 = 136, the value can't be properly saved in a char variable, use of unsigned int is recommended.
 char shiftAChar(char inputChar, char key, int op) {
 	// add your code here
+	if (op) {
+		if (inputChar < 'a'){
+			return static_cast <char> (((inputChar - 'A') + (key - 'a')) % 26 + 'A');
+		} else {
+			return static_cast <char> (((inputChar - 'a') + (key - 'a')) % 26 + 'a');
+		}
+	} else {
+		if (inputChar < 'a'){
+			return static_cast <char> (((inputChar - 'A') - (key - 'a') + 26) % 26 + 'A');
+		} else {
+			return static_cast <char> (((inputChar - 'a') - (key - 'a') + 26) % 26 + 'a');
+		}
+	}
 }
 
 // encrypt or decrypt a message
 void endecrypt(const char input[], int inputSize, const char key[], int keySize, char output[], int op) {
 	// add your code here
+	int i = 0, j = 0;
+	strcpy(output, "");
+	for (; j < inputSize; j++) {
+		if (input[j] == ' ') {
+			output[j] = ' ';
+		} else {
+			output[j] = shiftAChar(input[j], key[i], op);
+			i = (i + 1) % keySize;
+		}
+	}
+	output[j] = '\0';
 }
 
 int main() {
